@@ -1,0 +1,16 @@
+{
+  "extends": "@repo/typescript-config/fastify.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "fastify"
+      }
+    ]
+  },
+  "include": [
+    "**/*.ts",
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

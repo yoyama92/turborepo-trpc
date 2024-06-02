@@ -1,3 +1,42 @@
+# Turborepo tRPC
+
+Turborepoで作成したモノレポのアプリケーションにtRPCを適用したサンプルアプリケーション。
+
+## 起動方法
+
+```bash
+npm run dev
+```
+
+## 構成
+
+```
+.
+├── apps
+│   ├── api ... バックエンドのAPIアプリケーション 
+│   └── web ... フロントエンドのWEBアプリケーション
+└── packages
+    ├── api ... tRPCのAPI定義
+    ├── eslint-config ... eslintの設定
+    ├── typescript-config ...tsconfig
+    └── ui ... 共通UI※テンプレートでフロントのアプリケーションが2つだった名残
+```
+
+## tRPC
+
+`apps` 配下の両方から参照する必要があるため、`packages/api` で定義して、`packages/api` を `apps` 配下のアプリケーションが参照する。そのため、`apps/api` ではアプリケーションの起動設定とtRPCの読み込みのみ行う。
+
+## 認証
+
+認証機能にはNextAuthを採用している。
+
+* tRPCでの認可に用いるためにフロントエンドから呼び出す際は `middleware` で認証情報をヘッダーに付与してからrewriteする。
+* Server Componentから呼び出すときは直接バックエンドのURLを指定するので、Client Componentと tRPC のクライアントを分けている。
+
+
+---
+以下、テンプレートまま
+
 # Turborepo starter
 
 This is an official starter Turborepo.

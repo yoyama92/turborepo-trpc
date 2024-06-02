@@ -1,24 +1,20 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@repo/typescript-config/fastify.json",
   "compilerOptions": {
     "plugins": [
       {
-        "name": "next"
+        "name": "fastify"
       }
     ],
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "*"
+      "@repo/api/*": [
+        "./src/*"
       ]
     }
   },
   "include": [
-    "next-env.d.ts",
-    "next.config.js",
     "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
