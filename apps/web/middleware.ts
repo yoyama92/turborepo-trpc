@@ -1,6 +1,7 @@
-import { encode, getToken } from "next-auth/jwt";
+import { getToken } from "next-auth/jwt";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { encodeJwt } from "./utils/token";
 
 // This function can be marked `async` if using `await` inside
 export async function middleware(request: NextRequest) {
@@ -13,12 +14,7 @@ export async function middleware(request: NextRequest) {
 
   const jwt = await getToken({ req: request });
   if (jwt) {
-    // ヘッダに設定するときは寿命を短くする。
-    const encodedJwt = await encode({
-      token: jwt,
-      secret: process.env.NEXTAUTH_SECRET!,
-      maxAge: 5 * 60,
-    });
+    const encodedJwt = await encodeJwt(jwt);
 
     response.headers.set("authorization", `Bearer ${encodedJwt}`);
   }

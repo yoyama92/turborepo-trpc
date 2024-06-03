@@ -1,5 +1,5 @@
 import styles from "../page.module.css";
-import { trpc } from "@/utils/serverTrpc";
+import { trpc } from "@/utils/trpc";
 
 const fetchUser = async () => {
   try {
