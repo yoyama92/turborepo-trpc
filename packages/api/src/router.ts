@@ -16,7 +16,7 @@ const t = initTRPC.context<Context>().create();
 const protectedProcedure = t.procedure.use((opts) => {
   const { ctx } = opts;
   if (!ctx.user) {
-    throw new TRPCError({ code: "UNAUTHORIZED" });
+    throw new TRPCError({ code: "UNAUTHORIZED", message: "認証エラー" });
   }
   return opts.next({
     ctx: {
