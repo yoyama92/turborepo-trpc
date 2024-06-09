@@ -1,6 +1,6 @@
-import NextAuth from "next-auth";
 import { option } from "@/libs/authOption";
-import { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiRequest, NextApiResponse } from "next";
+import NextAuth from "next-auth";
 import { redirect } from "next/navigation";
 
 /**

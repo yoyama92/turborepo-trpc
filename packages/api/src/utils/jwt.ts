@@ -1,17 +1,17 @@
 import crypto from "node:crypto";
-import { JWTPayload, jwtDecrypt } from "jose";
+import { type JWTPayload, jwtDecrypt } from "jose";
 
-export const decode = async <JWT extends JWTPayload = JWTPayload>(params: {
+export const decode = async <Jwt extends JWTPayload = JWTPayload>(params: {
   token?: string;
   secret: string;
   salt?: string;
-}): Promise<JWT | null> => {
+}): Promise<Jwt | null> => {
   const { token, secret, salt = "" } = params;
   if (!token) {
     return null;
   }
   const encryptionSecret = await getDerivedEncryptionKey(secret, salt);
-  const { payload } = await jwtDecrypt<JWT>(token, encryptionSecret, {
+  const { payload } = await jwtDecrypt<Jwt>(token, encryptionSecret, {
     clockTolerance: 15,
   });
   return payload;
@@ -31,7 +31,7 @@ const getDerivedEncryptionKey = async (keyMaterial: string | Buffer, salt: strin
         } else {
           resolve(new Uint8Array(arrayBuffer));
         }
-      }
+      },
     );
   });
 };

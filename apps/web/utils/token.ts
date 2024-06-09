@@ -1,4 +1,5 @@
-import { JWT, encode } from "next-auth/jwt";
+import { env } from "@/libs/env";
+import { type JWT, encode } from "next-auth/jwt";
 
 /**
  * ヘッダに不要するためにJWTを暗号化する。
@@ -9,7 +10,7 @@ export const encodeJwt = async (jwt: JWT) => {
   // ヘッダに設定するときは寿命を短くする。
   return await encode({
     token: jwt,
-    secret: process.env.NEXTAUTH_SECRET!,
+    secret: env.NEXTAUTH_SECRET,
     maxAge: 5 * 60,
   });
 };

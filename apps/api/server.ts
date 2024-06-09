@@ -1,8 +1,8 @@
-import { fastifyTRPCPlugin, FastifyTRPCPluginOptions } from "@trpc/server/adapters/fastify";
-import fastify from "fastify";
 import helmet from "@fastify/helmet";
 import { createContext } from "@repo/api/context";
-import { appRouter, type AppRouter } from "@repo/api/router";
+import { type AppRouter, appRouter } from "@repo/api/router";
+import { type FastifyTRPCPluginOptions, fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
+import fastify from "fastify";
 
 const server = fastify({
   maxParamLength: 5000,

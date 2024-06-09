@@ -6,6 +6,7 @@ import { z } from "zod";
  */
 export const trpcErrorSchema = z.object({
   meta: z.object({
+    // biome-ignore lint/style/useNamingConvention: <explanation>
     responseJSON: z.array(
       z.object({
         error: z.object({
@@ -14,9 +15,10 @@ export const trpcErrorSchema = z.object({
             httpStatus: z.number(),
           }),
         }),
-      })
+      }),
     ),
   }),
 });
 
+// biome-ignore lint/style/useNamingConvention: <explanation>
 export type TRPCError = z.infer<typeof trpcErrorSchema>;

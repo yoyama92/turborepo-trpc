@@ -17,7 +17,6 @@
     "fastify": "^4.27.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/node": "^20.12.13",
     "tsx": "^4.11.0",

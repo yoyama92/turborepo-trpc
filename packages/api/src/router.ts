@@ -1,7 +1,7 @@
 import { TRPCError, initTRPC } from "@trpc/server";
 
+import type { Context } from "@repo/api/context";
 import { z } from "zod";
-import { Context } from "@repo/api/context";
 
 type User = {
   id: string;
@@ -37,7 +37,7 @@ export const appRouter = t.router({
       z.object({
         name: z.string().min(3),
         bio: z.string().max(142).optional(),
-      })
+      }),
     )
     .mutation((opts) => {
       const id = Date.now().toString();

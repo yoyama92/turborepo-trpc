@@ -1,15 +1,16 @@
-import styles from "../page.module.css";
 import { trpc } from "@/utils/trpc";
+import type { JSX } from "react";
+import styles from "../page.module.css";
 
 const fetchUser = async () => {
   try {
     return await trpc.getUser.query();
-  } catch (error) {
+  } catch {
     return undefined;
   }
 };
 
-export default async function Page(): Promise<JSX.Element> {
+const Page = async (): Promise<JSX.Element> => {
   const user = await fetchUser();
   return (
     <main className={styles.main}>
@@ -17,4 +18,7 @@ export default async function Page(): Promise<JSX.Element> {
       <div>{user && JSON.stringify(user, null, 2)}</div>
     </main>
   );
-}
+};
+
+// biome-ignore lint/style/noDefaultExport: <explanation>
+export default Page;

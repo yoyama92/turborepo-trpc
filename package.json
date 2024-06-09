@@ -4,14 +4,13 @@
   "scripts": {
     "build": "turbo build",
     "dev": "dotenv -- turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format-and-lint": "biome check .",
+    "format-and-lint:fix": "biome check . --write"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
+    "@biomejs/biome": "1.8.0",
     "@repo/typescript-config": "*",
     "dotenv-cli": "^7.4.2",
-    "prettier": "^3.2.5",
     "turbo": "latest"
   },
   "engines": {

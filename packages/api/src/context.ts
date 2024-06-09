@@ -1,5 +1,5 @@
-import { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify";
 import { decodeAndVerifyJwtToken } from "@repo/api/utils/token";
+import type { CreateFastifyContextOptions } from "@trpc/server/adapters/fastify";
 
 export const createContext = async ({ req, res }: CreateFastifyContextOptions) => {
   const getUserFromHeader = async () => {

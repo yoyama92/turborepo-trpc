@@ -17,7 +17,6 @@ npm run dev
 │   └── web ... フロントエンドのWEBアプリケーション
 └── packages
     ├── api ... tRPCのAPI定義
-    ├── eslint-config ... eslintの設定
     ├── typescript-config ...tsconfig
     └── ui ... 共通UI※テンプレートでフロントのアプリケーションが2つだった名残
 ```

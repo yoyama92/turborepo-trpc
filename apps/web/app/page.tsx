@@ -1,12 +1,13 @@
 "use client";
 
-import styles from "./page.module.css";
-import { Button } from "@repo/ui/button";
-import { errorHandler, trpc } from "@/utils/trpc";
 import { LoginButton } from "@/components/login-btn";
+import { errorHandler, trpc } from "@/utils/trpc";
+import { Button } from "@repo/ui/button";
 import Link from "next/link";
+import type { JSX } from "react";
+import styles from "./page.module.css";
 
-export default function Page(): JSX.Element {
+const Page = (): JSX.Element => {
   return (
     <main className={styles.main}>
       <LoginButton className={styles.button} />
@@ -24,7 +25,7 @@ export default function Page(): JSX.Element {
             .catch(
               errorHandler((error) => {
                 window.alert(JSON.stringify(error.meta.responseJSON, null, 2));
-              })
+              }),
             );
         }}
       >
@@ -32,4 +33,7 @@ export default function Page(): JSX.Element {
       </Button>
     </main>
   );
-}
+};
+
+// biome-ignore lint/style/noDefaultExport: <explanation>
+export default Page;

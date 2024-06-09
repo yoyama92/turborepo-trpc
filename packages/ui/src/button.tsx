@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface ButtonProps {
   children: ReactNode;
@@ -10,7 +10,7 @@ interface ButtonProps {
 
 export const Button = ({ children, className, onClick }: ButtonProps) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button type="button" className={className} onClick={onClick}>
       {children}
     </button>
   );

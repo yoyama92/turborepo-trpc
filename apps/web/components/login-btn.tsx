@@ -1,12 +1,12 @@
 "use client";
 
 import { Button } from "@repo/ui/button";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export const LoginButton = ({ className }: { className?: string }) => {
   const { data: session } = useSession();
 
-  if (session && session.user) {
+  if (session?.user) {
     return (
       <>
         Signed in as {session.user.email} <br />
